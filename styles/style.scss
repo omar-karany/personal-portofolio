@@ -1,0 +1,253 @@
+@import "_mixins";
+
+
+/* CSS Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: inherit;
+    display: inline-block;
+  }
+  
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border: 0;
+  }
+  
+  ul,
+  ol {
+    list-style: none;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    font-size: 1.6rem;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  /* End CSS Reset */
+
+
+  /*css variables*/
+  :root {
+    --color-very-dark-blue: #0f1424;
+    --color-dark-blue: #1c1f4a;
+    --color-desaturated-blue: #5646e9;
+    --color-pale-blue: #bdc1ff;
+    --color-white: #fff;
+    --default-padding: 2rem;
+    --default-radius: 0.8rem;
+  }
+
+  /*end css var*/
+
+
+  .container {
+    background: url(../icons/bachground.avif) var(--color-very-dark-blue);
+    background-blend-mode: difference; 
+    min-height: 100vh;
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 20rem);
+    position: relative;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 2rem;
+  
+  }
+
+  .container::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0.4rem);
+    z-index: 1;
+  }
+
+  .card {
+    background-color: var(--color-dark-blue);
+    border-radius: var(--default-radius);
+    padding: var(--default-padding);
+    z-index: 2;
+  }
+
+  .card1 {
+   grid-row: 1/3;
+   padding: 0;
+   display: flex;
+   flex-direction: column;
+  }
+
+  .top {
+    background-color: #5646e9;
+    padding: var(--default-padding);
+    border-top-left-radius: var(--default-radius);
+    border-top-right-radius: var(--default-radius);
+   
+  }
+
+  .omar-img {
+    width: 10rem;
+    height: 10rem;
+    border: solid 0.2rem var(--color-white);
+    border-radius: 50%;
+  }
+
+  .user-name {
+    font-size: 3rem;
+    font-weight: 350;
+    color: var(--color-white);
+
+  }
+
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem var(--default-padding);
+    row-gap: 3rem;
+    margin: 0 auto;
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .social-user {
+    font-size: 1.5rem;
+    color: var(--color-white);
+  }
+
+  .project-title,
+  .app-type,
+  .title {
+    color: var(--color-white);
+  }
+
+  .project-title {
+    font-size: 2.4rem;
+    font-weight: 300;
+  }
+
+  .app-type {
+    font-size: 1.5rem;
+    font-weight: 100;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 100;
+    
+  }
+
+  .stack {
+    margin-top: 2.5rem;
+  }
+
+
+  .languages {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+
+  }
+
+
+  .language {
+    background-color: var(--color-desaturated-blue);
+    color: var(--color-white);
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .pj {
+    font-size: 2rem;
+  }
+
+  /*responsive design*/
+
+  /*tablet*/
+ @include tablet {
+   .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: flex-start;
+    padding-bottom: 5rem;
+   }
+
+   .card {
+    margin: 0 var(--default-padding);
+   }
+
+   .card1 {
+    grid-column: 1/3;
+    flex-direction: row;
+    margin: 0;
+   }
+
+   .top {
+    display: flex;
+    flex: 1;
+    border-radius: 0;
+    align-items: center;
+    gap: 1rem;
+   }
+
+   .bottom {
+    display: flex;
+    flex: 1;
+   }
+
+
+  }
+
+/*mobile*/
+@include mobile {
+  .container {
+    grid-template-columns: 1fr;
+    padding-bottom: 5rem;
+  }
+
+  .card:not(:first-child) {
+    margin: 0 var(--default-padding);
+  }
+  .top {
+    display: flex;
+    flex: 1;
+    border-radius: 0;
+    align-items: center;
+    gap: 1.5rem;
+   }
+
+   .bottom {
+    display: flex;
+    flex-direction: row;
+     gap: 7rem;
+     padding: 2.5rem;
+   }
+
+}
+
+
+
